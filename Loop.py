@@ -7,8 +7,7 @@ for i in range(10):
 for i in range(0, 10, 2):
   print(i)
   
-  
-  
+    
 List = ["apple", "banana", "cherry"]
 
 for i in range(len(List)):
@@ -35,7 +34,7 @@ while True:
         break
     else:
         i=i+1
-"""
+
         
 RandVal = random.randint(1, 10)       
 cnt =0 
@@ -52,3 +51,4 @@ while True:
     elif(InVal < RandVal):
         print("Too low")
         cnt =cnt+1
+"""

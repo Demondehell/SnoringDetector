@@ -76,7 +76,7 @@ for train_index, test_index in kf.split(X):
     
  
 #     #***** multi layer perceptron 3 layer each layer 3 node
-    mlp = MLPClassifier(hidden_layer_sizes=(8,8,8), activation='relu', solver='adam', max_iter=500)
+    mlp = MLPClassifier(hidden_layer_sizes=(8,8,8), activation='relu', solver='adam', max_iter=50)
     mlp.fit(X_train,y_train)
     
     predict_train = mlp.predict(X_train)
@@ -103,8 +103,8 @@ for train_index, test_index in kf.split(X):
         MSE__Train_Best = MSE_train
         MSE__Test_Best = MSE_Test
         
-        # save the classifier
-        with open('D:/Work/BioMed/Snoring Detection/Model/Snoring_MLP.pkl', 'wb') as fid:
+        # save the classifier model
+        with open('D:/Work/BioMed/Snoring Detection/Model/Snoring_MLP_50iter.pkl', 'wb') as fid:
             cPickle.dump(mlp, fid)    
     
      
@@ -134,7 +134,7 @@ for train_index, test_index in kf.split(X):
               test_index_best = test_index
               MSE__Train_Best = MSE_train
               MSE__Test_Best =  MSE_Test
-              with open('D:/Work/BioMed/Snoring Detection/Model/Snoring_MLP_500iter.pkl', 'wb') as fid:
+              with open('D:/Work/BioMed/Snoring Detection/Model/Snoring_MLP_50iter.pkl', 'wb') as fid:
                   cPickle.dump(mlp, fid)    
         
     print(mean_squared_error(y_train,predict_train))
