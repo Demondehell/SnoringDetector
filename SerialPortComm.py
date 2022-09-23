@@ -2,7 +2,7 @@ import serial
 from serial.tools import list_ports
 
 VID_Ser = "2341"
-PID_Ser = "0043" #Uno
+PID_Ser = "0044" #Mega
 
 device_list = list_ports.comports()
 
@@ -22,24 +22,22 @@ except:
     print("Serial Port not connect")
     
     
-    
-try:    
-    if ser_Ser.inWaiting():
-        tmpstr = (ser_Ser.readline())
-        print(tmpstr)
-        try:
-            strtmp = tmpstr.decode()
-            #strData = strtmp.split(",")  
-            
-            
-        except:
-            print("Error Read Serial Port")     
-            ser_Ser.close()
+while True:    
+    try:    
+        if ser_Ser.inWaiting():
+            tmpstr = (ser_Ser.readline())
             try:
-                ser_Ser.open()
+                strtmp = tmpstr.decode()
+                print(strtmp)
+                #strData = strtmp.split(",")  
             except:
-                print("Serial Port not connect")
-except:
-    # print("Error Read Pump")        
-    a=1
+                print("Error Read Serial Port")     
+                ser_Ser.close()
+                try:
+                    ser_Ser.open()
+                except:
+                    print("Serial Port not connect")
+    except:
+        # print("Error Read Pump")        
+        a=1
 

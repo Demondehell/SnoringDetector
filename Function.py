@@ -3,7 +3,6 @@ TestFlg= False
 
 def SayHello():
     print("Hello world!!!")
-    (SayHello, 12)
     
 def NameSayHello(Name):
     print("Hello " + Name)
